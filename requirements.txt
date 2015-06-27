@@ -1,0 +1,4 @@
+# nltk requirements OS X
+nltk
+numpy
+
