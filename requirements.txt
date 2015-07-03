@@ -1,4 +1,6 @@
 # nltk requirements OS X
-nltk
+nltk==2.0.4
 numpy
-
+matplotlib
+networdX
+Prover9
