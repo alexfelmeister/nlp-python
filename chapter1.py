@@ -270,4 +270,15 @@ sorted([w for w in set(text5) if len(w) > 7 and fdist[w] > 7])
 ## fdist5[w] > 7 ensures words occur more than 7 times
 
 # Collocations and Bigrams
+## Collocation - sequence of words that occur together often (e.g. red wine)
+## user the bigrams function to find pairs of words
+bigrams(['more','is','said','than','done'])
+#[('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
 
+# We want to fucus on cases that involve rare words. 
+# Need bigrams that occure more often than we would expect based on the frequency of individual words
+# collocations() function does this
+
+text4.collocations()
+
+text8.collocations
