@@ -271,6 +271,7 @@ sorted([w for w in set(text5) if len(w) > 7 and fdist[w] > 7])
 
 # Collocations and Bigrams
 ## Collocation - sequence of words that occur together often (e.g. red wine)
+## COLOCATIONS ARE FREQUENT BIGRAMS
 ## user the bigrams function to find pairs of words
 bigrams(['more','is','said','than','done'])
 #[('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
@@ -281,4 +282,132 @@ bigrams(['more','is','said','than','done'])
 
 text4.collocations()
 
-text8.collocations
+text8.collocations()
+
+[len(w) for w in text1]
+
+fdist = FreqDist([len(w) for w in text1])
+fdist
+# <FreqDist with 19 samples and 260819 outcomes>
+# ^ is a distribution containing a quarter of a million items, each of which is a number corresponding to a word taken out of the test
+# there are only 20 distinct items being counted, the numbers 1 - 20
+
+fdist.items()
+# [(3, 50223), (1, 47933), (4, 42345), (2, 38513), (5, 26597), (6, 17111), (7, 14399), (8, 9966), (9, 6428), (10, 3528), (11, 1873), (12, 1053), (13, 567), (14, 177), (15, 70), (16, 22), (17, 12), (18, 1), (20, 1)]
+fdist.max()
+# 3
+fdist[3]
+# 50223
+fdist.freq(3)
+# 0.19255882431878046
+# above we see the most frequent word length is 3 and that words of length 3 account for roughly 50,000 of the words in the book. 
+
+# 1.4 Making decisions and taking control (operators)
+
+sent7 # First sentecne from text7 well street journal
+# ['Pierre', 'Vinken', ',', '61', 'years', 'old', ',', 'will', 'join', 'the', 'board', 'as', 'a', 'nonexecutive', 'director', 'Nov.', '29', '.']
+[w for w in sent7 if len(w) < 4]
+# [',', '61', 'old', ',', 'the', 'as', 'a', '29', '.']
+[w for w in sent7 if len(w) <= 4]
+#[',', '61', 'old', ',', 'will', 'join', 'the', 'as', 'a', 'Nov.', '29', '.']
+[w for w in sent7 if len(w) == 4]
+#['will', 'join', 'Nov.']
+[w for w in sent7 if len(w) !=  4]
+#['Pierre', 'Vinken', ',', '61', 'years', 'old', ',', 'the', 'board', 'as', 'a', 'nonexecutive', 'director', '29', '.']
+
+# [w for w.... ] is a python test where condition that yields either true or false. 
+
+sorted([w for w in set(text1) if w.endswith('ableness')]) # words in texst1 that end with 'ableness'
+#['comfortableness', 'honourableness', 'immutableness', 'indispensableness', 'indomitableness', 'intolerableness', 'palpableness', 'reasonableness', 'uncomfortableness']
+
+sorted([term for term in set(text4) if 'gnt' in term])
+# ['Sovereignty', 'sovereignties', 'sovereignty']
+
+sorted([item for item in set(text6) if item.istitle()])
+# ['A', 'Aaaaaaaaah', 'Aaaaaaaah', 'Aaaaaah', 'Aaaah', 'Aaaaugh', 'Aaagh', 'Aaah', 'Aaauggh', 'Aaaugh', 'Aaauugh', 'Aagh', 'Aah', 'Aauuggghhh', 'Aauuugh',....
+
+sorted([item for item in set(sent7) if item.isdigit()])
+# ['29', '61']
+
+sorted([w for w in set(text7) if '-' in w and 'index' in w])
+# ['Stock-index', 'index-arbitrage', 'index-fund', 'index-options', 'index-related', 'stock-index']
+
+sorted([wd for wd in set(text3) if wd.istitle() and len(wd) > 10])
+#['Abelmizraim', 'Allonbachuth', 'Beerlahairoi', 'Canaanitish', 'Chedorlaomer', 'Girgashites', 'Hazarmaveth', 'Hazezontamar', 'Ishmeelites', 'Jegarsahadutha', 'Jehovahjireh', 'Kirjatharba', 'Melchizedek', 'Mesopotamia', 'Peradventure', 'Philistines', 'Zaphnathpaaneah']
+
+sorted([w for w in set(sent7) if not w.islower()])
+# [',', '.', '29', '61', 'Nov.', 'Pierre', 'Vinken']
+
+sorted([t for t in set(text2) if 'cie' in t or 'cei' in t])
+# ['ancient', 'ceiling', 'conceit', 'conceited', 'conceive', 'conscience', 'conscientious', 'conscientiously', 'deceitful', 'deceive', 'deceived', 'deceiving', 'deficiencies', 'deficiency', 'deficient', 'delicacies', 'excellencies', 'fancied', 'insufficiency', 'insufficient', 'legacies', 'perceive', 'perceived', 'perceiving', 'prescience', 'prophecies', 'receipt', 'receive', 'received', 'receiving', 'society', 'species', 'sufficient', 'sufficiently', 'undeceive', 'undeceiving']
+
+# Operating on every element
+
+[len(w) for w in text1]
+# i think gives each word and it's length
+[w.upper() for w in text1]
+# the function operates on a word to compute its length or to convert it to uppercase.
+
+len(text1)
+# 260819
+len(set(text1))
+# 19317
+len(set([word.lower() for word in text1]))
+# 17231
+# ^ now that we are not double-counting words like This and this, which differ only in capitalization, we've wiped 2,000 off the vocabulary count. 
+# We can go a step further and eliminate numbers and punctuation from the vocabulary count buy filtering out any non-alphabetic items: 
+
+# lowercases all the purely alphabetic items. 
+len(set([word.lower() for word in text1 if word.isalpha()]))
+# 16948
+
+# Nested code blocks
+
+# WE can use nested code blocks to create a variable called word containing the string value 'cat'
+# If statement checks whether the test len(word) < 5. It is, so the boy of the if statement is ivoked and the print statement is executed.
+
+word = 'cat'
+if len(word) < 5:
+	print 'word length is less than 5'
+
+
+# Change the conditional test to len(word) >= 5 to check that the length of word is greater than or equal to 5 then the test will no longer be true
+if len(word) >= 5:
+	print 'word length is greater than or equal to 5'
+
+# an if statement is known as a control structure because it controls whether the code in the intended block will be run
+
+for word in ['Call', 'me', 'Ismael', '.']:
+	print word
+	
+#Call
+#me
+#Ismael
+#.
+## This is a loop because the code is in circular fashion. It starts by performing the assignment wrod = 'Call' 
+
+
+# Looping with conditions p.26
+# In the example loop over every item of the list and print the item only if it ends with the letter l.
+
+sent1 = ['Call', 'me', 'Ishmael', '.']
+for xyzzy in sent1:
+	if xyzzy.endswith('l'):
+		print xyzzy
+#Call
+#Ishmael
+
+
+# specify an action to be taken if the condition in the if is met, then  if the else if and the else.
+for token in sent1:
+     if token.islower():
+             print token, 'is a lowercase word'
+     elif token.istitle():
+             print token, 'is a titlecase word'
+     else:
+             print token, 'is punctuation'
+
+# Call is a titlecase word
+# me is a lowercase word
+# Ishmael is a titlecase word
+# . is punctuation
