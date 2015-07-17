@@ -411,3 +411,11 @@ for token in sent1:
 # me is a lowercase word
 # Ishmael is a titlecase word
 # . is punctuation
+
+# create a list of cie and cei words, then loop over each item and print it
+# comma at the end of the print statement produces the output in a single line
+tricky = sorted([w for w in set(text2) if 'cie' in w or 'cei' in w])
+for word in tricky:
+	print word,
+## ancient ceiling conceit conceited conceive conscience conscientious conscientiously deceitful deceive deceived deceiving deficiencies deficiency deficient delicacies excellencies fancied insufficiency insufficient legacies perceive perceived perceiving prescience prophecies receipt receive received receiving society species sufficient sufficiently undeceive undeceiving
+
