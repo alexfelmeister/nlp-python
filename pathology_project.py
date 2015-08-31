@@ -7,4 +7,7 @@
 # collocations and bigrams
 # # use collocation functions to find words together
 # need to find clinical molecular tests
-# 
+#
+
+#p. 51 2.1 shows how to load corpus
+# to do create txts for some field in cbttc and do the work on p. 51
